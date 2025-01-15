@@ -11,7 +11,7 @@ public class Client {
     private Long id;
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "seat_id", unique = true)
     private Seat seat;
 

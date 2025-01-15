@@ -12,6 +12,9 @@ public class Seat {
 
     private String name;
 
+    @OneToOne(mappedBy = "seat")
+    private Client client;
+
     public Seat() {}
 
     public Seat(String name) {
