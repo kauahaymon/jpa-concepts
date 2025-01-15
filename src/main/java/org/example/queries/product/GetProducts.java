@@ -1,6 +1,6 @@
-package org.example.queries.jpa.product;
+package org.example.queries.product;
 
-import org.example.entities.model.Product;
+import org.example.entities.basic.Product;
 import org.example.infra.DAO;
 
 import java.util.List;

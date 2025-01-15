@@ -1,9 +1,9 @@
-package org.example.queries.jpa.user;
+package org.example.queries.user;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.entities.model.User;
+import org.example.entities.basic.User;
 
 public class DeleteUser {
     public static void main(String[] args) {
