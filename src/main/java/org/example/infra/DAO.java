@@ -51,6 +51,10 @@ public class DAO<E> {
                 .closeTransaction();
     }
 
+    public E getById(Object id) {
+        return em.find(eClass, id);
+    }
+
     public List<E> getAll(int limit, int offset) {
         if (eClass == null) {
             throw new UnsupportedOperationException("Class is null");
@@ -61,7 +65,6 @@ public class DAO<E> {
         query.setMaxResults(limit);
         query.setFirstResult(offset);
         return query.getResultList();
-
     }
 
     public List<E> getAll() {

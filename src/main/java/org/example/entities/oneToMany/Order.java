@@ -3,6 +3,7 @@ package org.example.entities.oneToMany;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -12,8 +13,13 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY) // DEFAULT (ToMany)
+    private List<OrderItem> items;
+
     @Column(nullable = false)
     private Date date;
+
+    public Order() {}
 
     public Order(Date date) {
         this.date = date;
@@ -33,5 +39,9 @@ public class Order {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
     }
 }

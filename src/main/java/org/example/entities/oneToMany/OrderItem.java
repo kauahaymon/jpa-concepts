@@ -11,10 +11,10 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER) // DEFAULT (ToOne)
     private Product product;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER) // DEFAULT (ToOne)
     private Order order;
 
     @Column(nullable = false)
@@ -22,6 +22,8 @@ public class OrderItem {
 
     @Column(nullable = false)
     private Double price;
+
+    public OrderItem() {}
 
     public OrderItem(Product product, Order order, Integer quantity) {
         this.setProduct(product);
@@ -71,4 +73,6 @@ public class OrderItem {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+
 }
